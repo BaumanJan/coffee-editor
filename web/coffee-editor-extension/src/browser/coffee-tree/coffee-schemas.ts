@@ -161,6 +161,10 @@ export const waterTankView = {
     'type': 'Label',
     'text': 'Water Tank'
 };
+export const milkTankView = {
+    'type': 'Label',
+    'text': 'Milk Tank'
+};
 export const flowView = {
     'type': 'Label',
     'text': 'Flow'
@@ -194,6 +198,32 @@ export const manualTaskView = {
         {
             'type': 'Label',
             'text': 'Manual Task'
+        },
+        {
+            'type': 'Control',
+            'label': 'Name',
+            'scope': '#/properties/name',
+            'options': { focus: true }
+        },
+        {
+            'type': 'Control',
+            'label': 'Duration',
+            'scope': '#/properties/duration'
+        },
+        {
+            'type': 'Control',
+            'label': 'Actor',
+            'scope': '#/properties/actor'
+        }
+    ]
+};
+
+export const unmanagableTaskView = {
+    'type': 'VerticalLayout',
+    'elements': [
+        {
+            'type': 'Label',
+            'text': 'UnmanagableTask Task'
         },
         {
             'type': 'Control',
@@ -352,6 +382,16 @@ export const coffeeSchema = {
             },
             'additionalProperties': false
         },
+        'milktank': {
+            '$id': '#milktank',
+            'title': 'Milk Tank',
+            'properties': {
+                'eClass': {
+                    'const': 'http://www.eclipsesource.com/modelserver/example/coffeemodel#//MilkTank'
+                }
+            },
+            'additionalProperties': false
+        },
         'processor': {
             '$id': '#processor',
             'type': 'object',
@@ -464,6 +504,7 @@ export const coffeeSchema = {
                         'anyOf': [
                             { '$ref': '#/definitions/automatictask' },
                             { '$ref': '#/definitions/manualtask' },
+                            { '$ref': '#/definitions/unmanagableTask' },
                             { '$ref': '#/definitions/fork' },
                             { '$ref': '#/definitions/join' },
                             { '$ref': '#/definitions/decision' },
@@ -536,6 +577,26 @@ export const coffeeSchema = {
             'properties': {
                 'eClass': {
                     'const': 'http://www.eclipsesource.com/modelserver/example/coffeemodel#//ManualTask'
+                },
+                'name': {
+                    'type': 'string'
+                },
+                'duration': {
+                    'type': 'integer'
+                },
+                'actor': {
+                    'type': 'string'
+                }
+            },
+            'additionalProperties': false
+        },
+        'unmanagableTask': {
+            '$id': '#unmanagableTask',
+            'title': 'UnmanagableTask Task',
+            'type': 'object',
+            'properties': {
+                'eClass': {
+                    'const': 'http://www.eclipsesource.com/modelserver/example/coffeemodel#//UnmanagableTask'
                 },
                 'name': {
                     'type': 'string'

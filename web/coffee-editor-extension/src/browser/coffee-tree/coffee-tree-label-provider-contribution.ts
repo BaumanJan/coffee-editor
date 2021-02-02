@@ -20,6 +20,7 @@ const DEFAULT_COLOR = 'black';
 
 const ICON_CLASSES: Map<string, string> = new Map([
     [CoffeeModel.Type.AutomaticTask, 'fa-cog ' + DEFAULT_COLOR],
+    [CoffeeModel.Type.UnmanagableTask, 'fa-cog ' + DEFAULT_COLOR],
     [CoffeeModel.Type.BrewingUnit, 'fa-fire ' + DEFAULT_COLOR],
     [CoffeeModel.Type.ControlUnit, 'fa-server ' + DEFAULT_COLOR],
     [CoffeeModel.Type.Decision, 'fa-chevron-up ' + DEFAULT_COLOR],
@@ -37,6 +38,7 @@ const ICON_CLASSES: Map<string, string> = new Map([
     [CoffeeModel.Type.RAM, 'fa-memory ' + DEFAULT_COLOR],
     [CoffeeModel.Type.Task, 'fa-tasks ' + DEFAULT_COLOR],
     [CoffeeModel.Type.WaterTank, 'fa-tint ' + DEFAULT_COLOR],
+    [CoffeeModel.Type.MilkTank, 'fa-tint ' + DEFAULT_COLOR],
     [CoffeeModel.Type.WeightedFlow, 'fa-exchange-alt light-orange'],
     [CoffeeModel.Type.Workflow, 'fa-random ' + DEFAULT_COLOR]
 ]);
@@ -75,6 +77,7 @@ export class CoffeeTreeLabelProvider implements LabelProviderContribution {
             switch (data.eClass) {
                 case CoffeeModel.Type.Task:
                 case CoffeeModel.Type.AutomaticTask:
+				case CoffeeModel.Type.UnmanagableTask:
                 case CoffeeModel.Type.ManualTask:
                 case CoffeeModel.Type.Machine:
                     return data.name || this.getTypeName(data.eClass);

@@ -14,6 +14,7 @@ import URI from '@theia/core/lib/common/uri';
 export namespace CoffeeModel {
     export namespace Type {
         export const AutomaticTask = 'http://www.eclipsesource.com/modelserver/example/coffeemodel#//AutomaticTask';
+		export const UnmanagableTask = 'http://www.eclipsesource.com/modelserver/example/coffeemodel#//UnmanagableTask';
         export const BrewingUnit = 'http://www.eclipsesource.com/modelserver/example/coffeemodel#//BrewingUnit';
         export const ControlUnit = 'http://www.eclipsesource.com/modelserver/example/coffeemodel#//ControlUnit';
         export const Decision = 'http://www.eclipsesource.com/modelserver/example/coffeemodel#//Decision';
@@ -31,6 +32,7 @@ export namespace CoffeeModel {
         export const RAM = 'http://www.eclipsesource.com/modelserver/example/coffeemodel#//RAM';
         export const Task = 'http://www.eclipsesource.com/modelserver/example/coffeemodel#//Task';
         export const WaterTank = 'http://www.eclipsesource.com/modelserver/example/coffeemodel#//WaterTank';
+		export const MilkTank = 'http://www.eclipsesource.com/modelserver/example/coffeemodel#//MilkTank';
         export const WeightedFlow = 'http://www.eclipsesource.com/modelserver/example/coffeemodel#//WeightedFlow';
         export const Workflow = 'http://www.eclipsesource.com/modelserver/example/coffeemodel#//Workflow';
 
@@ -44,11 +46,13 @@ export namespace CoffeeModel {
         Type.ControlUnit,
         Type.BrewingUnit,
         Type.DipTray,
-        Type.WaterTank
+        Type.WaterTank,
+        Type.MilkTank
     ];
 
     const nodes = [
         Type.AutomaticTask,
+        Type.UnmanagableTask,
         Type.Decision,
         Type.Fork,
         Type.Join,
@@ -101,6 +105,14 @@ export namespace CoffeeModel {
         ],
         [
             Type.WaterTank, [
+                {
+                    property: 'children',
+                    children: components
+                }
+            ]
+        ],
+        [
+            Type.MilkTank, [
                 {
                     property: 'children',
                     children: components
