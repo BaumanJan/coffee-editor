@@ -1,3 +1,14 @@
+I am working on modifying the coffee editor.
+I changed the coffee.ecore file and rebuild the modelserver locally. The pom.xml of the modelserver here (backend/plugins/com.eclipsesource.coffee.modelserver/pom.xml) was updated to take the modified version rebuild with maven. 
+Additionlay i modified the following files to add my new compnets to the frontend:
+    web/coffee-editor-extension/src/browser/coffee-tree/coffee-model-service.ts
+	web/coffee-editor-extension/src/browser/coffee-tree/coffee-model.ts
+	web/coffee-editor-extension/src/browser/coffee-tree/coffee-schemas.ts
+	web/coffee-editor-extension/src/browser/coffee-tree/coffee-tree-label-provider-contribution.ts
+
+
+--
+
 # Coffee Editor IDE
 
 An example of how to build the Theia-based tools including graphical editos, form-based editors, tree-based editors, textual DSLs, model analyisis, debugging and more. The coffee editor is part of the [emf.cloud](https://www.eclipse.org/emfcloud/) project.
